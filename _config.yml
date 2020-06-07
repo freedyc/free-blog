@@ -13,8 +13,8 @@ timezone: 'CST'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
-root: /
+url: http://lookz.cn
+root: /free-blog
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
