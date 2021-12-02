@@ -1,4 +1,4 @@
-### VSCODE快捷键
+## VSCODE快捷键
 1. Command + T, Command + K 颜色主题切换
 2. Command + T, Command + M 键盘模式切换
 2. Command + w 关闭当前操作的文件
@@ -12,7 +12,7 @@
 8. Command + K S 自定义键盘的快捷方式
 
 
-### 界面操作
+## 界面操作
 
 1. Command + Shift + e 切换到资源管理器
 2. Command + Shift + x 切换到扩展下载

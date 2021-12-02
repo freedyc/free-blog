@@ -6,11 +6,11 @@ comments: true
 
 ---
 
-### CSS预处理器
+## CSS预处理器
 
 处理特定格式源文件到目标css的处理程序
 
-#### 预处理器的变革
+### 预处理器的变革
 
 1. CSS中使用后端模版变量统一处理CSS重复的值
 2. sass/less/stylus 
@@ -18,7 +18,7 @@ comments: true
 
 
 
-#### 预处理器有哪些规范
+### 预处理器有哪些规范
 
 1. 变量
 2. 混合（Mixin)Extend
@@ -49,7 +49,7 @@ Source => Parser => AST(纯CSS) => Plugin system [post-simple-vars, post-mixins,
 
 抽象语法树（Abstract Syntax Tree, AST)作为程序的一种中间表示形式
 
-### PostCSS
+## PostCSS
 
 **Use tomorrow’s CSS syntax, today.**  今天使用未来的CSS语法
 
