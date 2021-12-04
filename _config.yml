@@ -5,15 +5,15 @@
 # Site
 title: 邓永超
 subtitle: '持续学习，持续输出'
-description: '个人日常记录·'
-keywords: 
-author: Yongchao Deng
+description: '个人日常记录。'
+keywords: javascript,css,html,typescript,工程化
+author: Deng Yongchao
 language: zh-Hans
-timezone: ''
+timezone: 'Asia/Shanghai'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://lookz.cn
+url: https://github.com/freedyc/free-blog
 root: /free-blog
 permalink: :year/:month/:day/:title/
 permalink_defaults:
