@@ -1,0 +1,189 @@
+base_info:
+  title: 邓永超
+  author: Dyck Deng
+  url: https://github.com/freedyc/free-blog
+
+style:
+  # Theme primary color
+  primary_color: "#0066CC"
+
+  # Avatar (You can use local image or image external link)
+  avatar: /images/avatar.jpg
+
+  # Favicon (You can use local image or image external link)
+  favicon: /images/avatar.jpg
+
+  # Article image align position, value: left | center
+  article_img_align: left
+
+  # Left side width
+  left_side_width: 260px
+
+  # Content area max width
+  content_max_width: 920px
+
+  # Mouse hover
+  hover:
+    shadow: true # shadow effect when the mouse hover
+    scale: true # scale effect when the mouse hover
+
+  # First screen
+  first_screen:
+    enable: true
+    background_img: /free-blog/images/bg.svg # You can use local image or image external link
+    description: Happy coding.
+
+  # Scroll style settings
+  scroll:
+    progress_bar:
+      enable: true
+    percent:
+      enable: true
+
+# 配置自己相关链接
+social_contact:
+  enable: true
+  links:
+    github: https://github.com/freedyc              # your GitHub URL
+    weixin:               # your WeChat QR-Code URL
+    qq:                   # your QQ QR-Code URL
+    weibo:                # your WeiBo URL
+    zhihu: https://www.zhihu.com/people/dengyongchao               # your ZhiHu URL
+    twitter: https://twitter.com/dengychao              # your twitter URL
+    facebook:             # your facebook URL
+    email:  maito:dengyongchao@126.com              # your email
+
+# 配置一级菜单
+menu:
+  Home: /
+  Archives: /archives
+  Nav: https://bugchao.com
+  # Categories: /categories
+  # Tags: /tags
+  # Links: /links
+  # About: /about
+
+# 配置文章底部标签
+home_article:
+  category:
+    enable: true     # show category in home page article block
+    limit: 3          # max number of categories shown in home page article block
+  tag:
+    enable: true     # show tags in home page article block
+    limit: 5          # max number of tags shown in home page article block
+
+post:
+  # Post word count
+  # Dependencies: hexo-wordcount (npm install hexo-wordcount)
+  # See: https://github.com/willin/hexo-wordcount
+  word_count:
+    enable: true
+    wordcount: true  # word count, one article
+    min2read: false   # time to read, one article
+
+  # Author label
+  # 自定义标识列表
+  author_label:
+    enable: true
+    auto: true  # if true, show Lv1, Lv2, Lv3... , If false, show custom label
+    # label array item can be one or more
+    custom_label_list: [ "Trainee", "Engineer", "Architect", "CTO", "BOSS" ]
+  
+  code_copy:
+    enable: true
+    style: mac        # values: default | mac
+
+# 设置侧边栏
+toc:
+  enable: false
+
+  # Automatically add list number to toc.
+  number: false
+
+  # If true, all level of TOC in a post will be displayed, rather than the activated part of it.
+  expand_all: false
+
+  # If true, open TOC every time when you enter the article page
+  init_open: false
+
+# 版权声明
+copyright_info:
+  enable: true
+
+# 统计 
+website_count:
+  # busuanzi
+  # See: http://ibruce.info/2015/04/04/busuanzi/
+  busuanzi_count:
+    enable: true
+    site_uv: true
+    site_pv: true
+    page_pv: true
+
+# 本地搜索
+local_search:
+  enable: true
+  preload: true     # Preload the search data when the page loads
+
+# Search
+## See: https://github.com/theme-next/hexo-generator-searchdb
+search:
+  path: search.json
+  field: post
+  content: true
+  format: striptags
+
+
+# 评论
+# https://console.leancloud.cn/#/signup 注册
+comment:
+  enable: true
+  use: valine  # values: valine | gitalk | twikoo
+
+  # Valine
+  # See: https://github.com/xCss/Valine
+  valine:
+    appid: pYvekGg278Wy08A1W9DM3lQm-gzGzoHsz               # your leancloud application appid
+    appkey: 15EfD9hIM79chn4Cs4HjB6La              # your leancloud application appkey
+    placeholder: 欢迎评论～～～～～         # your placeholder
+
+  # Gitalk
+  # See: https://github.com/gitalk/gitalk
+  gitalk:
+    github_id:             # GitHub repo owner
+    repository:            # Repository name to store issues
+    client_id:             # GitHub Application Client ID
+    client_secret:         # GitHub Application Client Secret
+
+  # Twikoo
+  # See: https://github.com/imaegoo/twikoo
+  twikoo:
+    env_id:                # Tencent Cloud environment id
+    region:                # environment region. If select Guangzhou, fill in "ap-guangzhou".
+
+
+# RSS订阅
+rss:
+  enable: true
+
+# Feed Atom
+# npm install hexo-generator-feed 
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+
+
+lazyload:
+  enable: false  
+
+cdn:
+  enable: false  
+
+pjax:
+  enable: false  
+
+
+footer:
+  since: 2020      # the starting year of your website, Can be null
+  icp:             # ICP record number of your website, Can be null
