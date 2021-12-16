@@ -1,3 +1,11 @@
+---
+title: 你应该知道的英文
+date: 2021-12-04 22:55:53 
+tags: style
+comments: true
+---
+
+
 # 解决var不支持IE问题
 
 第1思路使用postcss解决，由于项目是create-react-appc创建的，条件是在不在弹出create-react-app配置请下支持

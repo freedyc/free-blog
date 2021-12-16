@@ -1,3 +1,11 @@
+---
+title: vscode 快捷键
+date: 2021-12-01 00:55:26 
+tags: Tool
+comments: true
+---
+
+
 ## Settings Sync
 使用GitHub Gist在多台机器上同步设置，代码片段，主题，文件图标，启动，键绑定，工作区和扩展。
 ### MAC

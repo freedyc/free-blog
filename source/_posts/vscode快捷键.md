@@ -1,3 +1,10 @@
+---
+title: vscode 快捷键
+date: 2021-12-01 00:58:36
+tags: Tool
+comments: true
+---
+
 ## VSCODE快捷键
 1. Command + T, Command + K 颜色主题切换
 2. Command + T, Command + M 键盘模式切换

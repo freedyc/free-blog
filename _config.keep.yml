@@ -47,11 +47,11 @@ social_contact:
     github: https://github.com/freedyc              # your GitHub URL
     weixin:               # your WeChat QR-Code URL
     qq:                   # your QQ QR-Code URL
-    weibo:                # your WeiBo URL
+    weibo: https://weibo.com/u/1767634827               # your WeiBo URL
     zhihu: https://www.zhihu.com/people/dengyongchao               # your ZhiHu URL
     twitter: https://twitter.com/dengychao              # your twitter URL
     facebook:             # your facebook URL
-    email:  maito:dengyongchao@126.com              # your email
+    email: maito:dengyongchao@126.com              # your email
 
 # 配置一级菜单
 menu:
@@ -61,7 +61,7 @@ menu:
   # Categories: /categories
   # Tags: /tags
   # Links: /links
-  # About: /about
+  About: /about
 
 # 配置文章底部标签
 home_article:
@@ -187,3 +187,6 @@ pjax:
 footer:
   since: 2020      # the starting year of your website, Can be null
   icp:             # ICP record number of your website, Can be null
+
+# 需要下载插件：hexo-all-minifier
+all_minifier: true

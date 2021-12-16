@@ -1,3 +1,11 @@
+---
+title: OCR是什么？
+date: 2021-12-09 23:36:46
+tags: other
+comments: true
+
+---
+
 # OCR是什么 ？
 OCR （Optical Character Recognition，光学字符识别）是指电子设备（例如扫描仪或数码相机）检查纸上打印的字符，通过检测暗、亮的模式确定其形状，然后用字符识别方法将形状翻译成计算机文字的过程；
 

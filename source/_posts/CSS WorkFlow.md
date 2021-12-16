@@ -1,7 +1,7 @@
 ---
 title: CSS WorkFlow
 date: 2020-08-06 22:25:09
-tags: JS
+tags: CSS
 comments: true
 
 ---
