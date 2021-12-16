@@ -1,7 +1,7 @@
 base_info:
   title: 邓永超
   author: Dyck Deng
-  url: https://github.com/freedyc/free-blog
+  url: https://blog.dengyongchao.com
 
 style:
   # Theme primary color
@@ -30,7 +30,7 @@ style:
   # First screen
   first_screen:
     enable: true
-    background_img: /free-blog/images/bg.svg # You can use local image or image external link
+    background_img: /images/bg.svg # You can use local image or image external link
     description: Happy coding.
 
   # Scroll style settings
