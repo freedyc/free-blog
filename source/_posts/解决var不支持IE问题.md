@@ -1,5 +1,5 @@
 ---
-title: 你应该知道的英文
+title: 解决var不支持IE问题
 date: 2021-12-04 22:55:53 
 tags: style
 comments: true
