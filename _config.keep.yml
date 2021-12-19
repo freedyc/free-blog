@@ -146,6 +146,10 @@ comment:
     appid: pYvekGg278Wy08A1W9DM3lQm-gzGzoHsz               # your leancloud application appid
     appkey: 15EfD9hIM79chn4Cs4HjB6La              # your leancloud application appkey
     placeholder: 欢迎评论～～～～～         # your placeholder
+    requiredFields: ['nick', 'mail']
+    # recordIP: true
+    # visitor: true
+    # lang: zh-CN
 
   # Gitalk
   # See: https://github.com/gitalk/gitalk

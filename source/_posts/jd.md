@@ -1,10 +1,10 @@
 ---
-title: jd
+title: jd 命令入门
 date: 2021-12-19 00:26:33
 tags: linux
 ---
 
-## jq命令
+## jq 命令
 轻松操作在命令行shell中操作json数据，可以对数据映射、过滤、转换
 
 1. 格式化JSON
@@ -33,9 +33,6 @@ cat data.json | jq ".resources" | jq ".[] | { id: .id}"
 ```
 cat data.json | jq ".resources" | jq "[.[] | { _id: .id}]"
 ```
-
-
-
 
 ## 例如
 
