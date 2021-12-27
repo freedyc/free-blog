@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>邓永超</title>
+  
+  <subtitle>持续学习，持续输出</subtitle>
+  <link href="https://blog.dengyongchao.com/atom.xml" rel="self"/>
+  
+  <link href="https://blog.dengyongchao.com/"/>
+  <updated>2021-12-27T15:26:08.498Z</updated>
+  <id>https://blog.dengyongchao.com/</id>
+  
+  <author>
+    <name>Deng Yongchao</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Nodejs 介绍</title>
+    <link href="https://blog.dengyongchao.com/2021/12/19/nodejs-intro/"/>
+    <id>https://blog.dengyongchao.com/2021/12/19/nodejs-intro/</id>
+    <published>2021-12-19T11:55:54.000Z</published>
+    <updated>2021-12-27T15:26:08.498Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong># Nodejs 简单介绍</strong></p><p>\1. Node.js是一个基于Chrome V8引擎的Javascript运行环境。</p><p>\2. Node.js使用了一个事件驱动、非阻塞I/O的模型，轻量又高效</p><p><strong>## Nodejs 的非阻塞 I/O</strong></p><p>\1. I/O 即 Input/Output，一个系统的输入和输出</p><p>\2. 阻塞I/O和非阻塞I/O的却别就在于系统接受输入再到输出期间，能不能接受其他输入</p><p><strong>## Node.js异步编程 - callback</strong></p><p>\1. 回调函数格式规范</p><p>​    - error-first callback</p><p>​    - node-style callback</p><p>\2. 第一个参数是error, 后边参数是结果</p><p><strong>## 异步 IO</strong></p><p>EventLoop是什么 ? </p><p>一个循环，每次循环叫tick每次循环的代码叫task</p><p><strong>## RPC调用</strong></p><p>\1. Remote Procedure Call（远程过程调用）</p><p>\2. 和Ajax有什么相同点</p><p>- 都是两个计算机之间网络通信</p><p>- 需要双方约定一个数据格式</p><p>\3. 不同点 </p><p>- 不一定使用DNS作为寻址服务</p><p>- 应用层协议一般不使用 HTTP</p><p>- 给予 TCP 或 UDP 协议</p><p>\4. 寻址/负载均衡: RPC：使用特有服务进行寻址</p><p>\5. TCP 通信方式: 单工通信、 半双工通信、全双工通信</p><p>\6. 二进制协议，更小的数据包体积、更快的编解码速率</p><p><strong>## nodejs 可以让我们前端做的更多</strong></p><p><strong>### BFF(Backend for frontend) 服务于前端的后端</strong></p><p>&gt; 通俗的讲是浏览器和服务器端的中间渲染层</p><p>&gt; 把后台微服务返回的数据组装成前端所需的数据</p><p>\1. 对用户侧提供HTTP服务</p><p>\2. 使用后端RPC服务</p><p><strong>### SSR (ServerSideRendering) 服务端渲染</strong></p><p>特性：</p><p>\1. 提高搜索引擎抓取网络的效果</p><p>\2. 提高网页首屏加载的速度</p><p><strong>## npm 上的大神</strong></p><p><a class="link"   href="https://github.com/tj" >TJ Holowaychunk<i class="fas fa-external-link-alt"></i></a> 作品：</p><p>- node版本管理工具：<a class="link"   href="https://github.com/tj/n" >n<i class="fas fa-external-link-alt"></i></a>，</p><p>- 命令行工具：<a class="link"   href="https://github.com/tj/commander.js" >Commander.js<i class="fas fa-external-link-alt"></i></a></p><p>- Reids会话存储：<a class="link"   href="https://github.com/tj/connect-redis" >connect-redis<i class="fas fa-external-link-alt"></i></a></p><p>- 基于generators流程控制: <a class="link"   href="https://github.com/tj/connect-redis" >co<i class="fas fa-external-link-alt"></i></a></p><p>- git 操作: <a class="link"   href="https://github.com/tj/git-extras" >git-extras<i class="fas fa-external-link-alt"></i></a></p><p><a class="link"   href="https://github.com/mafintosh" >Mathias Buus<i class="fas fa-external-link-alt"></i></a> 作品：</p><p>- 视频播放器<a class="link"   href="https://github.com/mafintosh/playback" >playback<i class="fas fa-external-link-alt"></i></a></p><p>- CSV 流解析器<a class="link"   href="https://github.com/mafintosh/csv-parser" >csv-parser<i class="fas fa-external-link-alt"></i></a></p><p><a class="link"   href="https://github.com/dominictarr" >Dominictarr<i class="fas fa-external-link-alt"></i></a> 作品：</p><p>- 流解析 JSON.parse<a class="link"   href="https://github.com/dominictarr/JSONStream" >JSON Stream<i class="fas fa-external-link-alt"></i></a></p><p>- 随机姓名<a class="link"   href="https://github.com/dominictarr/random-name" >random-name<i class="fas fa-external-link-alt"></i></a></p><p>- 点对点日志存储<a class="link"   href="https://github.com/ssbc/ssb-server" >ssb-server<i class="fas fa-external-link-alt"></i></a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;# Nodejs 简单介绍&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;\1. Node.js是一个基于Chrome V8引擎的Javascript运行环境。&lt;/p&gt;
+&lt;p&gt;\2. Node.js使用了一个事件驱动、非阻塞I/O的模型，轻量又高效&lt;/p&gt;
+&lt;p&gt;&lt;str</summary>
+      
+    
+    
+    
+    
+    <category term="nodejs" scheme="https://blog.dengyongchao.com/tags/nodejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jd 命令入门</title>
+    <link href="https://blog.dengyongchao.com/2021/12/18/jd/"/>
+    <id>https://blog.dengyongchao.com/2021/12/18/jd/</id>
+    <published>2021-12-18T16:26:33.000Z</published>
+    <updated>2021-12-27T15:26:08.498Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="jq-命令"><a href="#jq-命令" class="headerlink" title="jq 命令"></a>jq 命令</h2><p>轻松操作在命令行shell中操作json数据，可以对数据映射、过滤、转换</p><ol><li><p>格式化JSON</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat data.json | jq</span><br></pre></td></tr></table></figure></li><li><p>[index] 取数组的第一个</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat data.json | jq &#x27;.resources[0]&#x27;</span><br></pre></td></tr></table></figure></li><li><p>管道符号 ｜ 可以通过管道符号层层过滤</p></li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat data.json | jq &#x27;.resources[0]&#x27; | jq &#x27;.id&#x27;</span><br></pre></td></tr></table></figure><ol start="4"><li>返回数组所有数据 []</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat data.json | jq &quot;.resources&quot; | jq &quot;.[] | &#123; id: .id&#125;&quot;</span><br></pre></td></tr></table></figure><ol start="5"><li>自定义key,并以数组形式显示,命令用[]扩起来即可<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat data.json | jq &quot;.resources&quot; | jq &quot;[.[] | &#123; _id: .id&#125;]&quot;</span><br></pre></td></tr></table></figure></li></ol><h2 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h2><ol><li><p>格式化JSON</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">➜ cat data.json</span><br><span class="line">&#123;&quot;resources&quot;:[&#123;&quot;id&quot;:3,&quot;device_id&quot;:1,&quot;config_file_name&quot;:&quot;/usr/local/appdata/data/zddi/f5-backup/2021-10-18_09-30-29.f5.config&quot;,&quot;sync_start_time&quot;:1634520568,&quot;sync_end_time&quot;:1634520629,&quot;ctime&quot;:1634520629,&quot;error_file_state&quot;:10,&quot;state&quot;:20&#125;,&#123;&quot;id&quot;:2,&quot;device_id&quot;:1,&quot;config_file_name&quot;:&quot;/usr/local/appdata/data/zddi/f5-backup/2021-10-15_16-18-07.f5.config&quot;,&quot;sync_start_time&quot;:1634285832,&quot;sync_end_time&quot;:1634285887,&quot;ctime&quot;:1634285887,&quot;error_file_state&quot;:10,&quot;state&quot;:10&#125;,&#123;&quot;id&quot;:1,&quot;device_id&quot;:1,&quot;config_file_name&quot;:&quot;/usr/local/appdata/data/zddi/f5-backup/2021-10-15_14-04-45.f5.config&quot;,&quot;sync_start_time&quot;:1634277830,&quot;sync_end_time&quot;:1634277885,&quot;ctime&quot;:1634277885,&quot;error_file_state&quot;:10,&quot;state&quot;:10&#125;],&quot;page_num&quot;:&quot;1&quot;,&quot;page_size&quot;:&quot;30&quot;,&quot;total_size&quot;:3,&quot;min_time&quot;:1633046400000,&quot;max_time&quot;:1634601599000&#125;</span><br><span class="line"></span><br><span class="line">learning-notes/jq on  every [?]</span><br><span class="line">➜ cat data.json | jq</span><br><span class="line">&#123;</span><br><span class="line">  &quot;resources&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;id&quot;: 3,</span><br><span class="line">      &quot;device_id&quot;: 1,</span><br><span class="line">      &quot;config_file_name&quot;: &quot;/usr/local/appdata/data/zddi/f5-backup/2021-10-18_09-30-29.f5.config&quot;,</span><br><span class="line">      &quot;sync_start_time&quot;: 1634520568,</span><br><span class="line">      &quot;sync_end_time&quot;: 1634520629,</span><br><span class="line">      &quot;ctime&quot;: 1634520629,</span><br><span class="line">      &quot;error_file_state&quot;: 10,</span><br><span class="line">      &quot;state&quot;: 20</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;id&quot;: 2,</span><br><span class="line">      &quot;device_id&quot;: 1,</span><br><span class="line">      &quot;config_file_name&quot;: &quot;/usr/local/appdata/data/zddi/f5-backup/2021-10-15_16-18-07.f5.config&quot;,</span><br><span class="line">      &quot;sync_start_time&quot;: 1634285832,</span><br><span class="line">      &quot;sync_end_time&quot;: 1634285887,</span><br><span class="line">      &quot;ctime&quot;: 1634285887,</span><br><span class="line">      &quot;error_file_state&quot;: 10,</span><br><span class="line">      &quot;state&quot;: 10</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;id&quot;: 1,</span><br><span class="line">      &quot;device_id&quot;: 1,</span><br><span class="line">      &quot;config_file_name&quot;: &quot;/usr/local/appdata/data/zddi/f5-backup/2021-10-15_14-04-45.f5.config&quot;,</span><br><span class="line">      &quot;sync_start_time&quot;: 1634277830,</span><br><span class="line">      &quot;sync_end_time&quot;: 1634277885,</span><br><span class="line">      &quot;ctime&quot;: 1634277885,</span><br><span class="line">      &quot;error_file_state&quot;: 10,</span><br><span class="line">      &quot;state&quot;: 10</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;page_num&quot;: &quot;1&quot;,</span><br><span class="line">  &quot;page_size&quot;: &quot;30&quot;,</span><br><span class="line">  &quot;total_size&quot;: 3,</span><br><span class="line">  &quot;min_time&quot;: 1633046400000,</span><br><span class="line">  &quot;max_time&quot;: 1634601599000</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li><li><p>[index] 取数组的第一个</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">➜ cat data.json | jq &#x27;.resources[0]&#x27;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;id&quot;: 3,</span><br><span class="line">  &quot;device_id&quot;: 1,</span><br><span class="line">  &quot;config_file_name&quot;: &quot;/usr/local/appdata/data/zddi/f5-backup/2021-10-18_09-30-29.f5.config&quot;,</span><br><span class="line">  &quot;sync_start_time&quot;: 1634520568,</span><br><span class="line">  &quot;sync_end_time&quot;: 1634520629,</span><br><span class="line">  &quot;ctime&quot;: 1634520629,</span><br><span class="line">  &quot;error_file_state&quot;: 10,</span><br><span class="line">  &quot;state&quot;: 20</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>返回数组所有数据 []</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">learning-notes/jq on  every [?]</span><br><span class="line">➜ cat data.json | jq &quot;.resources&quot; | jq &quot;.[] | &#123; id: .id&#125;&quot;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;id&quot;: 3</span><br><span class="line">&#125;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;id&quot;: 2</span><br><span class="line">&#125;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;id&quot;: 1</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li><li><p>自定义key,并以数组形式显示,命令用[]扩起来即可</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">learning-notes/jq on  every [?]</span><br><span class="line">➜ cat data.json | jq &quot;.resources&quot; | jq &quot;[.[] | &#123; _id: .id&#125;]&quot;</span><br><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;_id&quot;: 3</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;_id&quot;: 2</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;_id&quot;: 1</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure><p>手册<br><a class="link"   href="http://alingse.github.io/jq-manual-cn/manual/v1.5/#Basicfilters" >http://alingse.github.io/jq-manual-cn/manual/v1.5/#Basicfilters<i class="fas fa-external-link-alt"></i></a></p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;jq-命令&quot;&gt;&lt;a href=&quot;#jq-命令&quot; class=&quot;headerlink&quot; title=&quot;jq 命令&quot;&gt;&lt;/a&gt;jq 命令&lt;/h2&gt;&lt;p&gt;轻松操作在命令行shell中操作json数据，可以对数据映射、过滤、转换&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;格式化JS</summary>
+      
+    
+    
+    
+    
+    <category term="linux" scheme="https://blog.dengyongchao.com/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OCR是什么？</title>
+    <link href="https://blog.dengyongchao.com/2021/12/09/OCR/"/>
+    <id>https://blog.dengyongchao.com/2021/12/09/OCR/</id>
+    <published>2021-12-09T15:36:46.000Z</published>
+    <updated>2021-12-27T15:26:08.498Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="OCR是什么-？"><a href="#OCR是什么-？" class="headerlink" title="OCR是什么 ？"></a>OCR是什么 ？</h1><p>OCR （Optical Character Recognition，光学字符识别）是指电子设备（例如扫描仪或数码相机）检查纸上打印的字符，通过检测暗、亮的模式确定其形状，然后用字符识别方法将形状翻译成计算机文字的过程；</p><ol><li><p>维基百科：<br><a class="link"   href="https://en.wikipedia.org/wiki/Optical_character_recognition" >https://en.wikipedia.org/wiki/Optical_character_recognition<i class="fas fa-external-link-alt"></i></a></p></li><li><p>百度百科：<br><a class="link"   href="https://baike.baidu.com/item/%E5%85%89%E5%AD%A6%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/4162921" >https://baike.baidu.com/item/%E5%85%89%E5%AD%A6%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/4162921<i class="fas fa-external-link-alt"></i></a></p></li><li><p>前端和OCR：<br>tesseract.js 是前端的js库，它可以提取图像中的文字，支持多种语言<br><a class="link"   href="https://github.com/naptha/tesseract.js#tesseractjs" >https://github.com/naptha/tesseract.js#tesseractjs<i class="fas fa-external-link-alt"></i></a></p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;OCR是什么-？&quot;&gt;&lt;a href=&quot;#OCR是什么-？&quot; class=&quot;headerlink&quot; title=&quot;OCR是什么 ？&quot;&gt;&lt;/a&gt;OCR是什么 ？&lt;/h1&gt;&lt;p&gt;OCR （Optical Character Recognition，光学字符识别）是指电子</summary>
+      
+    
+    
+    
+    
+    <category term="other" scheme="https://blog.dengyongchao.com/tags/other/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux history 命令</title>
+    <link href="https://blog.dengyongchao.com/2021/12/09/history/"/>
+    <id>https://blog.dengyongchao.com/2021/12/09/history/</id>
+    <published>2021-12-09T15:36:46.000Z</published>
+    <updated>2021-12-27T15:26:08.498Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Linux-history-命令"><a href="#Linux-history-命令" class="headerlink" title="Linux history 命令"></a>Linux history 命令</h1><p>linux 上用来查看历史使用过的命令</p><h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="列出最近使用n命令"><a href="#列出最近使用n命令" class="headerlink" title="列出最近使用n命令"></a>列出最近使用n命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">history</span> [n]</span><br></pre></td></tr></table></figure><h3 id="history-raw-file"><a href="#history-raw-file" class="headerlink" title="history [-raw] file"></a>history [-raw] file</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">history</span> -a .bak_history 将当前的历史命令存储到.bak_history</span><br><span class="line"><span class="built_in">history</span> -c 清楚当前使用的历史命令</span><br><span class="line"><span class="built_in">history</span> -r 将本地文件存储的历史命令存储到内存中，可以通过 <span class="built_in">history</span> 查看</span><br><span class="line"><span class="built_in">history</span> -w 将内存中的历史命令保存到本地文件中</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>默认历史命令写入<strong>~/.bash_history</strong>文件</p><h3 id="快捷调用历史命令"><a href="#快捷调用历史命令" class="headerlink" title="快捷调用历史命令"></a>快捷调用历史命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">!n <span class="comment">#调用第一个历史命令</span></span><br><span class="line">!! <span class="comment">#执行上一次使用的命令</span></span><br><span class="line">!<span class="built_in">command</span> <span class="comment">#从最近命令中查询command开头的命令执行</span></span><br><span class="line"></span><br><span class="line">ctrl + r <span class="comment"># 搜索历史记录，如果找到则显示出来</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> HISTSIZE=1000 <span class="comment"># 配置历史命令上限条数</span></span><br><span class="line"><span class="built_in">export</span> HISTTIMEFORMAT=<span class="string">&quot;%y-%m-%d %H:%M:%S &quot;</span> <span class="comment">#配置记录命令使用时间</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Linux-history-命令&quot;&gt;&lt;a href=&quot;#Linux-history-命令&quot; class=&quot;headerlink&quot; title=&quot;Linux history 命令&quot;&gt;&lt;/a&gt;Linux history 命令&lt;/h1&gt;&lt;p&gt;linux 上用来查看历史使</summary>
+      
+    
+    
+    
+    
+    <category term="linux" scheme="https://blog.dengyongchao.com/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Google Chrone 隐藏技巧</title>
+    <link href="https://blog.dengyongchao.com/2021/12/07/Google%20Chrome%20%E9%9A%90%E8%97%8F%E6%8A%80%E5%B7%A7/"/>
+    <id>https://blog.dengyongchao.com/2021/12/07/Google%20Chrome%20%E9%9A%90%E8%97%8F%E6%8A%80%E5%B7%A7/</id>
+    <published>2021-12-07T15:08:59.000Z</published>
+    <updated>2021-12-27T15:26:08.498Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Google-Chrone-隐藏技巧"><a href="#Google-Chrone-隐藏技巧" class="headerlink" title="Google Chrone 隐藏技巧"></a>Google Chrone 隐藏技巧</h1><h2 id="Chrome-地址栏链接"><a href="#Chrome-地址栏链接" class="headerlink" title="Chrome 地址栏链接"></a>Chrome 地址栏链接</h2><ol><li><a class="link"   href="chrome://dino" >小游戏<i class="fas fa-external-link-alt"></i></a></li><li><a class="link"   href="chrome://flags" >关闭 QUI 协议<i class="fas fa-external-link-alt"></i></a></li><li><a class="link"   href="chrome://net-internals" >代理、DNS 缓存、http 限制<i class="fas fa-external-link-alt"></i></a></li><li><a class="link"   href="chrome://crashes/" >查看 Chrome 奔溃历史<i class="fas fa-external-link-alt"></i></a></li><li><a class="link"   href="chrome://kill/" >终止当前标签页<i class="fas fa-external-link-alt"></i></a></li><li><a class="link"   href="chrome://predictors/" >跟踪你访问的网站预测你未来要访问的网站<i class="fas fa-external-link-alt"></i></a></li></ol><h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>inurl 搜索url网址中包含的指定字符串<br>intext 搜索网页中的标题名中是否包含指定字<br>intitle 搜索网页正文内容中指定字符串</p><h2 id="暗语"><a href="#暗语" class="headerlink" title="暗语"></a>暗语</h2><p>thisisunsafe 访问不安全的网站连接， 遇到自签证书无法访问，就可以使用这个方法</p><h2 id="Google-Pagespeed"><a href="#Google-Pagespeed" class="headerlink" title="Google Pagespeed"></a>Google Pagespeed</h2><p><a class="link"   href="https://developers.google.com/speed/docs/insights/rules" >https://developers.google.com/speed/docs/insights/rules<i class="fas fa-external-link-alt"></i></a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Google-Chrone-隐藏技巧&quot;&gt;&lt;a href=&quot;#Google-Chrone-隐藏技巧&quot; class=&quot;headerlink&quot; title=&quot;Google Chrone 隐藏技巧&quot;&gt;&lt;/a&gt;Google Chrone 隐藏技巧&lt;/h1&gt;&lt;h2 id=&quot;C</summary>
+      
+    
+    
+    
+    
+    <category term="chrome" scheme="https://blog.dengyongchao.com/tags/chrome/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决var不支持IE问题</title>
+    <link href="https://blog.dengyongchao.com/2021/12/04/%E8%A7%A3%E5%86%B3var%E4%B8%8D%E6%94%AF%E6%8C%81IE%E9%97%AE%E9%A2%98/"/>
+    <id>https://blog.dengyongchao.com/2021/12/04/%E8%A7%A3%E5%86%B3var%E4%B8%8D%E6%94%AF%E6%8C%81IE%E9%97%AE%E9%A2%98/</id>
+    <published>2021-12-04T14:55:53.000Z</published>
+    <updated>2021-12-27T15:26:08.498Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="解决var不支持IE问题"><a href="#解决var不支持IE问题" class="headerlink" title="解决var不支持IE问题"></a>解决var不支持IE问题</h1><p>第1思路使用postcss解决，由于项目是create-react-appc创建的，条件是在不在弹出create-react-app配置请下支持</p><h2 id="选择需要的库"><a href="#选择需要的库" class="headerlink" title="选择需要的库"></a>选择需要的库</h2><p>@rescripts/cli postcss-preset-env rescript-use-postcss-config</p><h2 id="rescriptrc文件"><a href="#rescriptrc文件" class="headerlink" title=".rescriptrc文件"></a>.rescriptrc文件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">modules.exports = [[&#x27;use-postcss-config&#x27;]];</span><br></pre></td></tr></table></figure><h2 id="postcssrc-js"><a href="#postcssrc-js" class="headerlink" title=".postcssrc.js"></a>.postcssrc.js</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  map: false,</span><br><span class="line">  plugins: &#123;</span><br><span class="line">    &#x27;postcss-preset-env&#x27;: &#123;</span><br><span class="line">      stage: 0,</span><br><span class="line">      browserslist: [</span><br><span class="line">        &quot;last 2 chrome version&quot;,</span><br><span class="line">        &quot;last 2 firefox version&quot;,</span><br><span class="line">        &quot;last 2 safari version&quot;,</span><br><span class="line">        &quot;IE 11&quot;,</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>以上操作大功告成<br>结果试了一下代码中的变量依然么有被替换掉</p><p>解决办法：<br>最后变量写到:root中</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:root &#123;</span><br><span class="line">    --primary-color: #fof</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这样试了一下完成，适配IE妥妥的</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;解决var不支持IE问题&quot;&gt;&lt;a href=&quot;#解决var不支持IE问题&quot; class=&quot;headerlink&quot; title=&quot;解决var不支持IE问题&quot;&gt;&lt;/a&gt;解决var不支持IE问题&lt;/h1&gt;&lt;p&gt;第1思路使用postcss解决，由于项目是create-re</summary>
+      
+    
+    
+    
+    
+    <category term="style" scheme="https://blog.dengyongchao.com/tags/style/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>你应该知道的英文</title>
+    <link href="https://blog.dengyongchao.com/2021/12/02/%E4%BD%A0%E5%BA%94%E8%AF%A5%E7%9F%A5%E9%81%93%E7%9A%84%E8%8B%B1%E6%96%87/"/>
+    <id>https://blog.dengyongchao.com/2021/12/02/%E4%BD%A0%E5%BA%94%E8%AF%A5%E7%9F%A5%E9%81%93%E7%9A%84%E8%8B%B1%E6%96%87/</id>
+    <published>2021-12-02T15:00:02.000Z</published>
+    <updated>2021-12-27T15:26:08.498Z</updated>
+    
+    <content type="html"><![CDATA[<table><thead><tr><th>英文</th><th>翻译</th><th></th></tr></thead><tbody><tr><td>follow</td><td>跟。</td><td>例：你最项目有没有follow</td></tr><tr><td>forward</td><td>转寄。</td><td>例： 把老板给你的Email forward 我一份</td></tr><tr><td>BU（back-up）</td><td>支持。</td><td>例：最近有没有BU</td></tr><tr><td>lucky star</td><td>幸运之星 。</td><td>例：今晚我是lucky star</td></tr><tr><td>OMG</td><td>我的天啊</td><td>例： oh my god</td></tr><tr><td>slide</td><td>幻灯片</td><td></td></tr><tr><td>leader</td><td>领导者</td><td></td></tr><tr><td>Q（quarter）</td><td>季度</td><td>例：Q1, Q2, Q3,第一季度、二季度、三季度</td></tr><tr><td>commit</td><td>提交</td><td></td></tr><tr><td>program</td><td>大纲，计划</td><td></td></tr><tr><td>Bouns</td><td>奖金</td><td>z</td></tr><tr><td>base pay</td><td>基本工资</td><td>例： 这个月只有base pay</td></tr><tr><td>Performance</td><td>绩效、性能</td><td>例：这样的performace 不好呀</td></tr><tr><td>package</td><td>包</td><td></td></tr><tr><td>Sense</td><td>观念、道理</td><td>你要有点职业Sense好吗， 对新技术要有sense</td></tr><tr><td>piece of cake</td><td>轻而易举的事情</td><td></td></tr><tr><td>Big point</td><td>大点</td><td></td></tr><tr><td>Motivation</td><td>良好的积极性</td><td></td></tr><tr><td>Quick learning</td><td>快速的学习能力</td><td></td></tr><tr><td>Fullstack</td><td>全栈工程师</td><td></td></tr><tr><td>Codereview</td><td>代码评审</td><td></td></tr><tr><td>Team Leader</td><td>TL团队领导</td><td></td></tr><tr><td>FYI</td><td>供你参考</td><td></td></tr></tbody></table>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;英文&lt;/th&gt;
+&lt;th&gt;翻译&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;follow&lt;/td&gt;
+&lt;td&gt;跟。&lt;/td&gt;
+&lt;td&gt;例：你最项目有没有follow&lt;/td&gt;
+&lt;/tr&gt;</summary>
+      
+    
+    
+    
+    
+    <category term="style" scheme="https://blog.dengyongchao.com/tags/style/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>文档写作规范</title>
+    <link href="https://blog.dengyongchao.com/2021/12/02/%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C%E8%A7%84%E8%8C%83/"/>
+    <id>https://blog.dengyongchao.com/2021/12/02/%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C%E8%A7%84%E8%8C%83/</id>
+    <published>2021-12-02T15:00:02.000Z</published>
+    <updated>2021-12-27T15:26:08.498Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="文档写作规范"><a href="#文档写作规范" class="headerlink" title="文档写作规范"></a>文档写作规范</h1><h2 id="几条实用规则"><a href="#几条实用规则" class="headerlink" title="几条实用规则"></a>几条实用规则</h2><ol><li>文明名称必须使用小写，不能含有空格</li><li>数字和单位之间必须要加空格</li><li>数字使用半角字符</li><li>标题按层级来不要一级标题下面跟三级标题</li><li>避免使用长句，长度尽量保持在20个子以内；20～29 个字的句子可以接受；30～39 个字的句子语义必须明确才能接受；多余40个字句子任何情况都不能接受</li><li>省略号英文下使用 … 中文下使用 ……</li><li>引用第三方内容必须注明出处，例如：本文转载自 wiki</li><li>数字的增加使用“增加了”、“增加到”。 “了”表示增量，“到”表示定量</li><li>数字的减少要是“降低了”、“降低到”。</li></ol><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ol><li><a class="link"   href="https://github.com/sparanoid/chinese-copywriting-guidelines" >中文文案排版指北<i class="fas fa-external-link-alt"></i></a></li><li><a class="link"   href="https://github.com/vinta/pangu.js" >加空格<i class="fas fa-external-link-alt"></i></a></li><li><a class="link"   href="https://w3c.github.io/clreq/" >w3c 中文排版要求<i class="fas fa-external-link-alt"></i></a></li><li><a class="link"   href="http://www.ruanyifeng.com/blog/2017/02/filename-should-be-lowercase.html" >为什么文件要小写<i class="fas fa-external-link-alt"></i></a></li><li><a class="link"   href="https://developers.google.com/style/" >Google dc style guide<i class="fas fa-external-link-alt"></i></a></li><li><a class="link"   href="http://www.moe.gov.cn/ewebeditor/uploadfile/2015/01/13/20150113091154536.pdf" >中华人民共和国国家标准<i class="fas fa-external-link-alt"></i></a></li><li><a class="link"   href="https://zh.wikisource.org/zh-hans/GB_3100-1993_%E5%9B%BD%E9%99%85%E5%8D%95%E4%BD%8D%E5%88%B6%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8" >GB 3100-1993 国际单位制及其应用<i class="fas fa-external-link-alt"></i></a></li><li><a class="link"   href="https://github.com/ruanyf/document-style-guide" >中文技术文档的写作规范<i class="fas fa-external-link-alt"></i></a></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;文档写作规范&quot;&gt;&lt;a href=&quot;#文档写作规范&quot; class=&quot;headerlink&quot; title=&quot;文档写作规范&quot;&gt;&lt;/a&gt;文档写作规范&lt;/h1&gt;&lt;h2 id=&quot;几条实用规则&quot;&gt;&lt;a href=&quot;#几条实用规则&quot; class=&quot;headerlink&quot; titl</summary>
+      
+    
+    
+    
+    
+    <category term="style" scheme="https://blog.dengyongchao.com/tags/style/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vscode 快捷键</title>
+    <link href="https://blog.dengyongchao.com/2021/11/30/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>https://blog.dengyongchao.com/2021/11/30/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/</id>
+    <published>2021-11-30T16:58:36.000Z</published>
+    <updated>2021-12-27T15:26:08.498Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="VSCODE快捷键"><a href="#VSCODE快捷键" class="headerlink" title="VSCODE快捷键"></a>VSCODE快捷键</h2><ol><li>Command + T, Command + K 颜色主题切换</li><li>Command + T, Command + M 键盘模式切换</li><li>Command + w 关闭当前操作的文件</li><li>Command + n 新建一个文件</li><li>Option + 上下键 上下移动当前行</li><li>Option + Shift + 上下键 复制当前行</li><li>Command + 上下键 快速移动光标到开头或者结尾</li><li>Command + 左右键盘 快速移动光标到行的开头或者结尾</li><li>Command + Shift + L 快速选择定位所有匹配</li><li>Command + \ 分隔编辑器多个文件并行编辑</li><li>Command + K S 自定义键盘的快捷方式</li></ol><h2 id="界面操作"><a href="#界面操作" class="headerlink" title="界面操作"></a>界面操作</h2><ol><li>Command + Shift + e 切换到资源管理器</li><li>Command + Shift + x 切换到扩展下载</li><li>Comaand + B 显示侧边栏</li><li>Command + J 显示面板/控制台</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;VSCODE快捷键&quot;&gt;&lt;a href=&quot;#VSCODE快捷键&quot; class=&quot;headerlink&quot; title=&quot;VSCODE快捷键&quot;&gt;&lt;/a&gt;VSCODE快捷键&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;Command + T, Command + K 颜色主题切换&lt;/li&gt;</summary>
+      
+    
+    
+    
+    
+    <category term="Tool" scheme="https://blog.dengyongchao.com/tags/Tool/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vscode 插件</title>
+    <link href="https://blog.dengyongchao.com/2021/11/30/vscode%E6%8F%92%E4%BB%B6/"/>
+    <id>https://blog.dengyongchao.com/2021/11/30/vscode%E6%8F%92%E4%BB%B6/</id>
+    <published>2021-11-30T16:55:26.000Z</published>
+    <updated>2021-12-27T15:26:08.498Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Settings-Sync"><a href="#Settings-Sync" class="headerlink" title="Settings Sync"></a>Settings Sync</h2><p>使用GitHub Gist在多台机器上同步设置，代码片段，主题，文件图标，启动，键绑定，工作区和扩展。</p><h3 id="MAC"><a href="#MAC" class="headerlink" title="MAC"></a>MAC</h3><ol><li>Upload Key : Shift + Option + U</li><li>Download Key : Shift + Option + D</li></ol><h2 id="Ayu"><a href="#Ayu" class="headerlink" title="Ayu"></a>Ayu</h2><p>提供简单的主题适合任何时间工作</p><h2 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h2><ul><li>Comment Translate</li><li>Comment this</li><li>Better Comment</li></ul><h2 id="TabLine"><a href="#TabLine" class="headerlink" title="TabLine"></a>TabLine</h2><p>TabNine使用深度学习来帮助您更快地编写代码。</p><h2 id="GitHub-Copilot"><a href="#GitHub-Copilot" class="headerlink" title="GitHub Copilot"></a>GitHub Copilot</h2><p>AI学习代码，自动生成代码片段。</p><h2 id="Draw-io-Integration"><a href="#Draw-io-Integration" class="headerlink" title="Draw.io Integration"></a>Draw.io Integration</h2><p>画流程图或思维盗图</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Settings-Sync&quot;&gt;&lt;a href=&quot;#Settings-Sync&quot; class=&quot;headerlink&quot; title=&quot;Settings Sync&quot;&gt;&lt;/a&gt;Settings Sync&lt;/h2&gt;&lt;p&gt;使用GitHub Gist在多台机器上同步设置，代码</summary>
+      
+    
+    
+    
+    
+    <category term="Tool" scheme="https://blog.dengyongchao.com/tags/Tool/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HardSourceWebpackPlugin 内存溢出</title>
+    <link href="https://blog.dengyongchao.com/2020/12/11/hard-source-webpack-plugin-heapOutOfMemory/"/>
+    <id>https://blog.dengyongchao.com/2020/12/11/hard-source-webpack-plugin-heapOutOfMemory/</id>
+    <published>2020-12-11T03:08:59.000Z</published>
+    <updated>2021-12-27T15:26:08.498Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="HardSourceWebpackPlugin-内存溢出"><a href="#HardSourceWebpackPlugin-内存溢出" class="headerlink" title="HardSourceWebpackPlugin 内存溢出"></a>HardSourceWebpackPlugin 内存溢出</h1><p>开发模式下经过一天的 dev 最终突然无法访问了， 后一看命令行报如下错误，发现内存溢出了</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[hardsource:19a950bb] Using 326 MB of disk space.</span><br><span class="line">94% after seal[hardsource:19a950bb] Could not freeze ./assets/stylesheets/zddi.scss: Cannot <span class="built_in">read</span> property <span class="string">&#x27;hash&#x27;</span> of undefined</span><br><span class="line">[hardsource:19a950bb] Could not freeze ./node_modules/@dengyongchao/modal/modal.scss: Cannot <span class="built_in">read</span> property <span class="string">&#x27;hash&#x27;</span> of undefined</span><br><span class="line">95% emitting HtmlWebpackPlugin</span><br><span class="line">&lt;--- Last few GCs ---&gt;</span><br><span class="line"></span><br><span class="line">[52718:0x10286b000] 13503751 ms: Mark-sweep 1364.3 (1403.4) -&gt; 1364.2 (1403.4) MB, 493.1 / 0.1 ms  (average mu = 0.248, current mu = 0.000) last resort GC <span class="keyword">in</span> old space requested</span><br><span class="line">[52718:0x10286b000] 13504247 ms: Mark-sweep 1364.2 (1403.4) -&gt; 1364.2 (1403.4) MB, 495.7 / 0.1 ms  (average mu = 0.142, current mu = 0.000) last resort GC <span class="keyword">in</span> old space requested</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;--- JS stacktrace ---&gt;</span><br><span class="line"></span><br><span class="line">==== JS stack trace =========================================</span><br><span class="line"></span><br><span class="line">    0: ExitFrame [pc: 0x2d8c53e878a1]</span><br><span class="line">Security context: 0x155e5e79e6c1 &lt;JSObject&gt;</span><br><span class="line">    1: byteLength(aka byteLength) [0x155ebfdfa7b9] [buffer.js:~509] [pc=0x2d8c54ca5567](this=0x155e775026f1 &lt;undefined&gt;,string=0x155e86cb5ee9 &lt;Very long string[10165335]&gt;,encoding=0x155e5e7be9b1 &lt;String[4]: utf8&gt;)</span><br><span class="line">    2: arguments adaptor frame: 3-&gt;2</span><br><span class="line">    3: from [0x155e607a0d59] [buffer.js:~199] [pc=0x2d8c54cf8c6c](this=0x155ebfdd4181 &lt;JSFunction Buffer (sfi...</span><br><span class="line"></span><br><span class="line">FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory</span><br><span class="line"> 1: 0x100d68631 node::Abort() (.cold.1) [/usr/<span class="built_in">local</span>/bin/node]</span><br><span class="line"> 2: 0x10003aeb2 node_module_register [/usr/<span class="built_in">local</span>/bin/node]</span><br><span class="line"> 3: 0x10003b073 node::OnFatalError(char const*, char const*) [/usr/<span class="built_in">local</span>/bin/node]</span><br><span class="line"> 4: 0x1001a9197 v8::Utils::ReportOOMFailure(v8::internal::Isolate*, char const*, bool) [/usr/<span class="built_in">local</span>/bin/node]</span><br><span class="line"> 5: 0x1001a9131 v8::internal::V8::FatalProcessOutOfMemory(v8::internal::Isolate*, char const*, bool) [/usr/<span class="built_in">local</span>/bin/node]</span><br><span class="line"> 6: 0x100593692 v8::internal::Heap::FatalProcessOutOfMemory(char const*) [/usr/<span class="built_in">local</span>/bin/node]</span><br><span class="line"> 7: 0x10059ce55 v8::internal::Heap::AllocateRawWithRetryOrFail(int, v8::internal::AllocationSpace, v8::internal::AllocationAlignment) [/usr/<span class="built_in">local</span>/bin/node]</span><br><span class="line"> 8: 0x10056f6f3 v8::internal::Factory::NewRawTwoByteString(int, v8::internal::PretenureFlag) [/usr/<span class="built_in">local</span>/bin/node]</span><br><span class="line"> 9: 0x1006a8952 v8::internal::String::SlowFlatten(v8::internal::Handle&lt;v8::internal::ConsString&gt;, v8::internal::PretenureFlag) [/usr/<span class="built_in">local</span>/bin/node]</span><br><span class="line">10: 0x1001c97c0 v8::String::Utf8Length() const [/usr/<span class="built_in">local</span>/bin/node]</span><br><span class="line">11: 0x10004c9e0 node::Buffer::(anonymous namespace)::ByteLengthUtf8(v8::FunctionCallbackInfo&lt;v8::Value&gt; const&amp;) [/usr/<span class="built_in">local</span>/bin/node]</span><br><span class="line">12: 0x2d8c53e878a1</span><br><span class="line">13: 0x2d8c54ca5567</span><br><span class="line">14: 0x2d8c53e8a5c3</span><br><span class="line">error Command failed with signal <span class="string">&quot;SIGABRT&quot;</span>.</span><br><span class="line">info Visit https://yarnpkg.com/en/docs/cli/run <span class="keyword">for</span> documentation about this <span class="built_in">command</span>.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Version: webpack 4.44.2</span><br><span class="line">Time: 4624ms</span><br><span class="line">Built at: 2020-12-11 10:44:07 AM</span><br><span class="line">                                    Asset      Size  Chunks                                      Chunk Names</span><br><span class="line">                                   app.js  4.43 MiB     app  [emitted]                    [big]  app</span><br><span class="line">     fc7b2a59864448e6c572.hot-update.json  48 bytes          [emitted] [immutable] [hmr]</span><br><span class="line">master.fc7b2a59864448e6c572.hot-update.js  4.12 KiB  master  [emitted] [immutable] [hmr]         master</span><br><span class="line">                                master.js  9.71 MiB  master  [emitted]                    [big]  master</span><br><span class="line"> + 3 hidden assets</span><br><span class="line">Entrypoint app [big] = app.css app.js</span><br><span class="line">[./assets/javascripts/zddi/am/dhcp_like/views/main.js] 2.67 KiB &#123;master&#125; [built]</span><br><span class="line">    + 3749 hidden modules</span><br><span class="line">ℹ ｢wdm｣: Compiled successfully.</span><br><span class="line">ℹ ｢wdm｣: Compiling...</span><br><span class="line">[hardsource:19a950bb] Using 326 MB of disk space.</span><br><span class="line">94% after seal[hardsource:19a950bb] Could not freeze ./assets/stylesheets/zddi.scss: Cannot <span class="built_in">read</span> property <span class="string">&#x27;hash&#x27;</span> of undefined</span><br><span class="line">[hardsource:19a950bb] Could not freeze ./node_modules/@dengyongchao/modal/modal.scss: Cannot <span class="built_in">read</span> property <span class="string">&#x27;hash&#x27;</span> of undefined</span><br><span class="line">ℹ ｢wdm｣: Hash: d41d03944d509d378704</span><br><span class="line">Version: webpack 4.44.2</span><br><span class="line">Time: 5698ms</span><br></pre></td></tr></table></figure><hr><p>解决方案</p><p>v8 对内存限制约为 1.7 GB</p><p>可以手动设置限制大小， 我采用的方案</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node --max-old-space-size=4096 a.js</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;HardSourceWebpackPlugin-内存溢出&quot;&gt;&lt;a href=&quot;#HardSourceWebpackPlugin-内存溢出&quot; class=&quot;headerlink&quot; title=&quot;HardSourceWebpackPlugin 内存溢出&quot;&gt;&lt;/a&gt;Ha</summary>
+      
+    
+    
+    
+    
+    <category term="nodejs" scheme="https://blog.dengyongchao.com/tags/nodejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ruby thin 服务器最大请求 URL 限制</title>
+    <link href="https://blog.dengyongchao.com/2020/11/10/ruby-thin-server-max-request-limit/"/>
+    <id>https://blog.dengyongchao.com/2020/11/10/ruby-thin-server-max-request-limit/</id>
+    <published>2020-11-10T02:08:59.000Z</published>
+    <updated>2021-12-27T15:26:08.498Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="ruby-thin-服务器最大请求-URL-限制"><a href="#ruby-thin-服务器最大请求-URL-限制" class="headerlink" title="ruby thin 服务器最大请求 URL 限制"></a>ruby thin 服务器最大请求 URL 限制</h1><ol><li><p>请求头<br>当请求头超过112kb会抛出错误</p></li><li><p>请求体<br>当请求体超过112kb会把请求移出内存，放入临时文件</p></li></ol><h2 id="上源码"><a href="#上源码" class="headerlink" title="上源码"></a>上源码</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># thin-1.7.2/lib/thin/request.rb限制</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Maximum request body size before it is moved out of memory</span></span><br><span class="line"><span class="comment"># and into a tempfile for reading.</span></span><br><span class="line">MAX_BODY          = <span class="number">1024</span> * (<span class="number">80</span> + <span class="number">32</span>)</span><br><span class="line">BODY_TMPFILE      = <span class="string">&#x27;thin-body&#x27;</span>.freeze</span><br><span class="line">MAX_HEADER        = <span class="number">1024</span> * (<span class="number">80</span> + <span class="number">32</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="variable">@parser</span>.finished?  <span class="comment"># Header finished, can only be some more body</span></span><br><span class="line">    <span class="variable">@body</span> &lt;&lt; data</span><br><span class="line">  <span class="keyword">else</span>                  <span class="comment"># Parse more header using the super parser</span></span><br><span class="line">    <span class="variable">@data</span> &lt;&lt; data</span><br><span class="line">    raise InvalidRequest, <span class="string">&#x27;Header longer than allowed&#x27;</span> <span class="keyword">if</span> <span class="variable">@data</span>.size &gt; MAX_HEADER</span><br><span class="line"></span><br><span class="line">    <span class="variable">@nparsed</span> = <span class="variable">@parser</span>.execute(<span class="variable">@env</span>, <span class="variable">@data</span>, <span class="variable">@nparsed</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Transfer to a tempfile if body is very big</span></span><br><span class="line">    move_body_to_tempfile <span class="keyword">if</span> <span class="variable">@parser</span>.finished? &amp;&amp; content_length &gt; MAX_BODY</span><br><span class="line">  <span class="keyword">end</span></span><br></pre></td></tr></table></figure><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># thin-1.7.2/ext/thin_parser/thin.c</span></span><br><span class="line"><span class="comment">/* Defines the maximum allowed lengths for various input elements.*/</span></span><br><span class="line">DEF_MAX_LENGTH(FIELD_NAME, <span class="number">256</span>);</span><br><span class="line">DEF_MAX_LENGTH(FIELD_VALUE, <span class="number">80</span> * <span class="number">1024</span>);</span><br><span class="line">DEF_MAX_LENGTH(REQUEST_URI, <span class="number">1024</span> * <span class="number">12</span>);</span><br><span class="line">DEF_MAX_LENGTH(FRAGMENT, <span class="number">1024</span>); <span class="comment">/* Don&#x27;t know if this length is specified somewhere or not */</span></span><br><span class="line">DEF_MAX_LENGTH(REQUEST_PATH, <span class="number">2048</span>);</span><br><span class="line">DEF_MAX_LENGTH(QUERY_STRING, (<span class="number">1024</span> * <span class="number">10</span>));</span><br><span class="line">DEF_MAX_LENGTH(HEADER, (<span class="number">1024</span> * (<span class="number">80</span> + <span class="number">32</span>)));</span><br></pre></td></tr></table></figure><h2 id="针对批量删除-编辑条数超过500条时会报bad-Request分析和方案"><a href="#针对批量删除-编辑条数超过500条时会报bad-Request分析和方案" class="headerlink" title="针对批量删除/编辑条数超过500条时会报bad Request分析和方案"></a>针对批量删除/编辑条数超过500条时会报bad Request分析和方案</h2><p>问题分析：</p><p>查看thin源码thin-1.7.2/lib/thin/request.rb文件中定义</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MAX_HEADER = <span class="number">1024</span> * (<span class="number">80</span> + <span class="number">32</span>)</span><br></pre></td></tr></table></figure><p>代码中会判断</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">raise InvalidRequest, <span class="string">&#x27;Header longer than allowed&#x27;</span> <span class="keyword">if</span> <span class="variable">@data</span>.size &gt; MAX_HEADER</span><br></pre></td></tr></table></figure><p>操作日志信息会放在header中传输当删除条数过多时header长度会超过所定义长度，则报bad Request</p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ol><li>长期考虑的话建议，停止使用data-description传操作日志信息，能使用提交参数记录尽量使用，不能则用_desc替代</li><li>前台在生成data-description判断长度是否超过40kb，超过则放在body中传给后台</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;ruby-thin-服务器最大请求-URL-限制&quot;&gt;&lt;a href=&quot;#ruby-thin-服务器最大请求-URL-限制&quot; class=&quot;headerlink&quot; title=&quot;ruby thin 服务器最大请求 URL 限制&quot;&gt;&lt;/a&gt;ruby thin 服务器最</summary>
+      
+    
+    
+    
+    
+    <category term="ruby" scheme="https://blog.dengyongchao.com/tags/ruby/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>travis-ci入门</title>
+    <link href="https://blog.dengyongchao.com/2020/08/08/travis-ci%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D/"/>
+    <id>https://blog.dengyongchao.com/2020/08/08/travis-ci%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D/</id>
+    <published>2020-08-08T07:25:09.000Z</published>
+    <updated>2021-12-27T15:26:08.498Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="什么是持续集成？"><a href="#什么是持续集成？" class="headerlink" title="什么是持续集成？"></a>什么是持续集成？</h2><p>持续集成是迭代更一小部分代码的实践，而不是在开发周期结束是合并整个修改，目标是通过更小的增量开发和测试来构建更健康的软件，这就是Travis-CI的用武之地。</p><p>Travis CI提供的是持续集成的服务（Continuous Integration,简写CI）。</p><p>Travis CI是Github项目最流行的持续集成工具。</p><h3 id="官方网址"><a href="#官方网址" class="headerlink" title="官方网址"></a>官方网址</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open https://travis-ci.com/</span><br></pre></td></tr></table></figure><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ol><li>一个github,Bitbucket,gitlab,Assembla随便一个代码管理工具</li><li>设置travis正确的权限</li></ol><h3 id="在GitHub中使用Travis-CI"><a href="#在GitHub中使用Travis-CI" class="headerlink" title="在GitHub中使用Travis CI"></a>在GitHub中使用Travis CI</h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;什么是持续集成？&quot;&gt;&lt;a href=&quot;#什么是持续集成？&quot; class=&quot;headerlink&quot; title=&quot;什么是持续集成？&quot;&gt;&lt;/a&gt;什么是持续集成？&lt;/h2&gt;&lt;p&gt;持续集成是迭代更一小部分代码的实践，而不是在开发周期结束是合并整个修改，目标是通过更小的增量</summary>
+      
+    
+    
+    
+    
+    <category term="CI" scheme="https://blog.dengyongchao.com/tags/CI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS WorkFlow</title>
+    <link href="https://blog.dengyongchao.com/2020/08/06/CSS%20WorkFlow/"/>
+    <id>https://blog.dengyongchao.com/2020/08/06/CSS%20WorkFlow/</id>
+    <published>2020-08-06T14:25:09.000Z</published>
+    <updated>2021-12-27T15:26:08.498Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="CSS预处理器"><a href="#CSS预处理器" class="headerlink" title="CSS预处理器"></a>CSS预处理器</h2><p>处理特定格式源文件到目标css的处理程序</p><h3 id="预处理器的变革"><a href="#预处理器的变革" class="headerlink" title="预处理器的变革"></a>预处理器的变革</h3><ol><li>CSS中使用后端模版变量统一处理CSS重复的值</li><li>sass/less/stylus </li><li>直接书写css</li></ol><h3 id="预处理器有哪些规范"><a href="#预处理器有哪些规范" class="headerlink" title="预处理器有哪些规范"></a>预处理器有哪些规范</h3><ol><li>变量</li><li>混合（Mixin)Extend</li><li>嵌套规则</li><li>运算</li><li>函数</li><li>Namespaces &amp; Accessors</li><li>Scope</li><li>注释</li></ol><h3 id="CSS后处理器"><a href="#CSS后处理器" class="headerlink" title="CSS后处理器"></a>CSS后处理器</h3><ol><li>CSS压缩 CLEAN-CSS</li><li>自动添加浏览器前缀Autoprefixer</li><li>CSS更加美观顺序 CSScomb</li><li>Rework取代Stylus后处理器发热</li><li>前后通吃PostCSS (预处理器和后处理器)</li></ol><h3 id="老式处理过程"><a href="#老式处理过程" class="headerlink" title="老式处理过程"></a>老式处理过程</h3><p>Source =&gt; Parser =&gt; AST(类CSS) =&gt; Interpreter =&gt; AST(纯CSS) =&gt; Translator =&gt; CSS</p><h4 id="新型的处理过程-（共享AST-最后生成CSS"><a href="#新型的处理过程-（共享AST-最后生成CSS" class="headerlink" title="新型的处理过程 （共享AST,最后生成CSS)"></a>新型的处理过程 （共享AST,最后生成CSS)</h4><p>Source =&gt; Parser =&gt; AST(纯CSS) =&gt; Plugin system [post-simple-vars, post-mixins, PostNested, post-custom…]  =&gt; AST(纯CSS) =&gt; Translator =&gt; CSS</p><p>抽象语法树（Abstract Syntax Tree, AST)作为程序的一种中间表示形式</p><h2 id="PostCSS"><a href="#PostCSS" class="headerlink" title="PostCSS"></a>PostCSS</h2><p><strong>Use tomorrow’s CSS syntax, today.</strong>  今天使用未来的CSS语法</p><h4 id="cssnext-（此库已经弃用）"><a href="#cssnext-（此库已经弃用）" class="headerlink" title="cssnext （此库已经弃用）"></a>cssnext （此库已经弃用）</h4><p>官网介绍：<a class="link"   href="https://cssnext.github.io/" >https://cssnext.github.io/<i class="fas fa-external-link-alt"></i></a></p><h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a><a class="link"   href="https://cssnext.github.io/features/" >特性<i class="fas fa-external-link-alt"></i></a></h4><ul><li><a class="link"   href="https://cssnext.github.io/features/#automatic-vendor-prefixes" >automatic vendor prefixes<i class="fas fa-external-link-alt"></i></a></li><li><a href="https://cssnext.github.io/features/#custom-properties-var">custom properties &amp; <code>var()</code></a> </li><li><a href="https://cssnext.github.io/features/#custom-properties-set-apply">custom properties set &amp; <code>@apply</code></a> </li><li><a href="https://cssnext.github.io/features/#reduced-calc">reduced <code>calc()</code></a></li><li><a class="link"   href="https://cssnext.github.io/features/#custom-media-queries" >custom media queries<i class="fas fa-external-link-alt"></i></a></li><li><a class="link"   href="https://cssnext.github.io/features/#media-queries-ranges" >media queries ranges<i class="fas fa-external-link-alt"></i></a></li><li><a class="link"   href="https://cssnext.github.io/features/#custom-selectors" >custom selectors<i class="fas fa-external-link-alt"></i></a></li><li><a class="link"   href="https://cssnext.github.io/features/#nesting" >nesting<i class="fas fa-external-link-alt"></i></a></li><li><a href="https://cssnext.github.io/features/#image-set-function"><code>image-set()</code> function</a></li><li><a href="https://cssnext.github.io/features/#color-function"><code>color()</code> function</a></li><li><a href="https://cssnext.github.io/features/#hwb-function"><code>hwb()</code> function</a></li><li><a href="https://cssnext.github.io/features/#gray-function"><code>gray()</code> function</a></li><li><a href="https://cssnext.github.io/features/#rrggbbaa-colors"><code>#rrggbbaa</code> colors</a></li><li><a href="https://cssnext.github.io/features/#rgba-function-rgb-fallback"><code>rgba</code> function (<code>rgb</code> fallback)</a> </li><li><a href="https://cssnext.github.io/features/#rebeccapurple-color"><code>rebeccapurple</code> color</a></li><li><a href="https://cssnext.github.io/features/#font-variant-property"><code>font-variant</code> property</a></li><li><a href="https://cssnext.github.io/features/#filter-property"><code>filter</code> property</a> (svg fallback)</li><li><a href="https://cssnext.github.io/features/#initial-value"><code>initial</code> value</a></li><li><a href="https://cssnext.github.io/features/#rem-unit-px-fallback"><code>rem</code> unit</a> (<code>px</code> fallback)</li><li><a href="https://cssnext.github.io/features/#any-link-pseudo-class"><code>:any-link</code> pseudo-class</a></li><li><a href="https://cssnext.github.io/features/#matches-pseudo-class"><code>:matches</code> pseudo-class</a></li><li><a href="https://cssnext.github.io/features/#not-pseudo-class"><code>:not</code> pseudo-class</a> (to l.3)</li><li><a href="https://cssnext.github.io/features/#pseudo-syntax-fallback"><code>::</code>pseudo syntax</a> (<code>:</code> fallback)</li><li><a href="https://cssnext.github.io/features/#overflow-wrap-property-word-wrap-fallback"><code>overflow-wrap</code> property</a> (<code>word-wrap</code> fallback)</li><li><a class="link"   href="https://cssnext.github.io/features/#attribute-case-insensitive" >attribute case insensitive<i class="fas fa-external-link-alt"></i></a></li><li><a href="https://cssnext.github.io/features/#rgb-function-functional-notation"><code>rgb()</code> function</a> (functional-notation)</li><li><a href="https://cssnext.github.io/features/#hsl-function-functional-notation"><code>hsl()</code> function</a> (functional-notation)</li><li><a href="https://cssnext.github.io/features/#system-ui-font-family"><code>system-ui</code> font-family</a> (font-family fallback)</li></ul><h4 id="提供书写前和书写的案例"><a href="#提供书写前和书写的案例" class="headerlink" title="提供书写前和书写的案例"></a>提供书写前和书写的案例</h4><p><a class="link"   href="https://cssnext.github.io/playground/" >https://cssnext.github.io/playground/<i class="fas fa-external-link-alt"></i></a></p><h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>cssnext已经被弃用，可以迁移至<a href="http://preset-env.cssdb.org/"><code>postcss-preset-env</code></a></p><p>弃用库的原因可查看地址：<a class="link"   href="https://moox.io/blog/deprecating-cssnext/" >https://moox.io/blog/deprecating-cssnext/<i class="fas fa-external-link-alt"></i></a></p><h4 id="post-preset-env"><a href="#post-preset-env" class="headerlink" title="post-preset-env"></a>post-preset-env</h4><p>官网地址：<a class="link"   href="http://preset-env.cssdb.org/" >http://preset-env.cssdb.org/<i class="fas fa-external-link-alt"></i></a></p><h4 id="W3C标准的实现"><a href="#W3C标准的实现" class="headerlink" title="W3C标准的实现"></a>W3C标准的实现</h4><ol><li><p>变量</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  --<span class="selector-tag">main</span>-bg-<span class="attribute">color</span>: gray;</span><br><span class="line">  --x: <span class="number">0.5</span>;</span><br><span class="line">  --y: <span class="number">0.5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>使用CSS变量</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  backgorund: <span class="built_in">var</span>(--main-bg-color);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>CSS变量结合calc计算公式</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">left</span>: <span class="built_in">calc</span>(<span class="number">100px</span> * <span class="built_in">var</span>(--x));</span><br></pre></td></tr></table></figure></li><li><p>使用CSS变量的默认值</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">right</span>: <span class="built_in">calc</span>(<span class="number">100px</span> * <span class="built_in">var</span>(--x, <span class="number">0.1</span>));</span><br></pre></td></tr></table></figure></li><li><p>Javascript给CSS变量赋值</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> el = <span class="built_in">document</span>.documentElement;</span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">&quot;mousemove&quot;</span>, <span class="function">(<span class="params">&#123; clientX, clientY&#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> x = clientX / innerWidth;</span><br><span class="line">  <span class="keyword">let</span> y = clientY / innerHeight;</span><br><span class="line">  el.style.setProperty(<span class="string">&quot;--x&quot;</span>, x);</span><br><span class="line">  el.style.setProperty(<span class="string">&quot;--y&quot;</span>, y);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li></ol><h4 id="POSTCSS-插件"><a href="#POSTCSS-插件" class="headerlink" title="POSTCSS 插件"></a>POSTCSS 插件</h4><ol><li><a class="link"   href="https://github.com/postcss/postcss-custom-properties" >postcss-custom-properties<i class="fas fa-external-link-alt"></i></a> 允许使用自定义属性，运行时的变量</li><li><a class="link"   href="https://github.com/postcss/postcss-simple-vars" >postcss-simple-vars <i class="fas fa-external-link-alt"></i></a> 可以在值和选择器中使用变量与scss一致变量实现</li><li><a class="link"   href="https://github.com/postcss/postcss-mixins" >postcss-mixins<i class="fas fa-external-link-alt"></i></a> 实现类似SASS的@mixin功能</li><li><a class="link"   href="https://github.com/travco/postcss-extend" >postcss-extend<i class="fas fa-external-link-alt"></i></a> 实现类似SASS的继承功能</li><li><a class="link"   href="https://github.com/postcss/postcss-import" >postcss-import<i class="fas fa-external-link-alt"></i></a> 实现类似SASS功能的@import </li><li>Cssnext 面向未来 CSSGrace修复过去</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;CSS预处理器&quot;&gt;&lt;a href=&quot;#CSS预处理器&quot; class=&quot;headerlink&quot; title=&quot;CSS预处理器&quot;&gt;&lt;/a&gt;CSS预处理器&lt;/h2&gt;&lt;p&gt;处理特定格式源文件到目标css的处理程序&lt;/p&gt;
+&lt;h3 id=&quot;预处理器的变革&quot;&gt;&lt;a href=</summary>
+      
+    
+    
+    
+    
+    <category term="CSS" scheme="https://blog.dengyongchao.com/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面向切面的编程思想</title>
+    <link href="https://blog.dengyongchao.com/2020/08/04/%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%9A%84%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/"/>
+    <id>https://blog.dengyongchao.com/2020/08/04/%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%9A%84%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/</id>
+    <published>2020-08-04T15:11:09.000Z</published>
+    <updated>2021-12-27T15:26:08.498Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="SOLID设计原则"><a href="#SOLID设计原则" class="headerlink" title="SOLID设计原则"></a>SOLID设计原则</h2><blockquote><p>编程思想逐层提升 （improve programming thinking)</p><ol><li>面向对象</li></ol><p>传统方式</p><p>动态映入需要的类</p><ol start="2"><li>工厂模式</li></ol><p>业务层不需要关注实例到底怎么生成</p><ol start="3"><li>面向切面</li></ol><p>不用再写工厂类，直接从IOC容器中创建好的实例取</p><p>oop 是静态的抽象</p><p>aop 是动态的抽象</p></blockquote><p>SOLID 面向对象设计原则之一 （单一功能、开闭原则、里氏替换、接口隔离以及依赖反转）<br>nm≥tn t m ≥ˆ˚∆</p><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>程序设计领域，SOLID(单一功能、开闭原则、里氏替换、接口隔离以及依赖反转）是由罗伯特.C.马丁在21世纪早期引入记忆术首字母的缩略字，指代了面向对象编程和面向对象设计的五个基本原则。当这些原则被一起应用时，它们使得一个程序员开发一个容易进行软件维护和扩展的系统变得更加可能SOLID被典型的应用在测试驱动开发上，并且是敏捷开发以及自适应软件开发的基本原则的重要组成部分</p><h3 id="字母代表的含义"><a href="#字母代表的含义" class="headerlink" title="字母代表的含义"></a>字母代表的含义</h3><ol><li><p>[S] Single Responsibility (单一功能原则）</p></li><li><p>[0] Open Close Principle (开闭原则）</p></li><li><p>[L] Liskov Substitution Principle (里氏替换原则）</p></li><li><p>[I] Interface Segregation Principle (接口隔离原则）</p></li></ol><h4 id="S-单一功能原则（Single-Responsibility）"><a href="#S-单一功能原则（Single-Responsibility）" class="headerlink" title="[S]单一功能原则（Single Responsibility）"></a>[S]单一功能原则（Single Responsibility）</h4><p>单一功能原则： 单一功能原则认为对象应该仅具有一种单一功能的概念</p><p>换句话说就是让一个类只做一种类型责任，当这个类需要承担其他类型责任的时候，就要分解这个类。在所有的SOLID原则中，这是大多数开发人员感到最能完全理解的一条。严格来说这也可能是违反最频繁的一条规则了。单一责任的原则可以看作是底耦合、高内聚在面向对象原则上引申，将责任定义为引起变化的原因，以提高内聚性来减少引起变化原因。责任过多，可能引起它变化的原因就越多，这将导致责任依赖，相互之间就产生影响，从而极大的损伤其内聚性和耦合度。单一责任，通常意味着单一的功能，因此不要为一个模块实现过多的功能点。以保证实体只有一个引起它变化的原因。</p><h4 id="o-开闭原则-Open-Close-Principle"><a href="#o-开闭原则-Open-Close-Principle" class="headerlink" title="[o]开闭原则 (Open Close Principle)"></a>[o]开闭原则 (Open Close Principle)</h4><p>开闭原则（ocp) 认为“软件体应该是对于扩展开放的，但是对于修改封闭的”的概念</p><p>软件实体应该是可扩展，而不可修改的。也就是说，对扩展是开放的，而对修改是封闭的（<strong>“开”指的就是类、模块、函数都应该具有可扩展性，“闭”指的是它们不应该被修改。也就是说你可以新增功能单不能去修改源码</strong>）这个原则是诸多面向对象编程原则中最抽象、最难理解的一个。</p><p>对扩展开放，意味着有新的需求或变化时，可以对现有代码进行扩展，以适应新的情况。对修改封闭，意味着类一旦设计完成，就可以独立完成其工作，而不要对类进行任何修改。可以使用变化和不变来说明：封装不变部分，开发时变化部分，一般使用接口继承实现方式来实现“开发”应对变化，说大白话就是：你不是要变化吗？那么就让你继承实现一个对象，用一个接口来抽象你的职责，你变化越多，继承实现的子类就越多。</p><p>例如：抽象类</p><h4 id="L-里氏替换原则（Liskov-Substitution-Principle）"><a href="#L-里氏替换原则（Liskov-Substitution-Principle）" class="headerlink" title="[L]里氏替换原则（Liskov Substitution Principle）"></a>[L]里氏替换原则（Liskov Substitution Principle）</h4><p>里氏替换原则：里氏替换原则认为“程序中的对象应该是可以在不改变程序正确性的前提下被它的子类所替换的”的概念。</p><p><strong>子类必须能够换成它们的基类</strong>。即： 子类可以替换任何基类能够实现的地方。并且经过替换以后代码还能正常工作。另外，不应该在代码中出现if/else对子类对子类类型进行判断的条件。里氏替换原则LSP是使代码符合开闭原则的一个重要保证。正是由于子类型的可替换性才使得父类型的模块在无需修改的情况下就可以扩展。很多情况下。在设计初期我们类之间的关系不是很明确，LSP则给了我们一个判断和设计类之间关系的基准：需不需要继承，以及怎样设计继承管理</p><p>当一个子类的实例应该能够替换任何其超类的实例时，它们之间才具有is-A关系。继承对象OCP，就相当于多态性对于里氏原则。子类可以代替基类，客户使用基类，他们不要知道派生类所做的事情。这是针对行为职责可替代的原则，如果S是T的子类，那么S对象就应该在不改变任何抽象属性的情况下替换所有T对象。</p><h4 id="I-接口隔离原则（interface-segregation-Principle"><a href="#I-接口隔离原则（interface-segregation-Principle" class="headerlink" title="[I]接口隔离原则（interface segregation Principle)"></a>[I]接口隔离原则（interface segregation Principle)</h4><p>接口隔离原则：接口隔离原则认为“多个特定客户端接口要好于一个宽泛用途的接口”的概念</p><p>不能强迫用户依赖那些它们不使用的接口。换句话说，<strong>使用多个专门的接口比使用单一的总接口总要好JavaScript 几乎没有接口的概念所以使用ts)</strong> 注意：在代码中应用ISP并不一定意味着服务就是绝对安全的。仍然需要采用良好的编码实践，以确保正确的验证和授权。</p><p>这个原则起源于施乐公司，他们需要建立一个打印机系统，可以执行诸如装订的印刷品一套，传真多种业务。此系统软件建立从底层开始编制，并实现了这些任务功能，但是不断增长的软件功能却使软件本身越来越难适应变化和维护，每一次改变，即使是最小的变化，有人可能需要近一个小时的重新编译和重新部署。这是几乎不可能继续发展，所以他们聘请罗伯特Robert帮助他们。他们先设计一个主要类Job,几乎能够用于实现所用功能。只有调用Job类的一个方法就可以实现一个小功能，Job类就变动非常大，是一个胖模型啊。对于客户端如果只需要一个打印功能，但是其他无关打印方法功能也和其他耦合，ISP原则建议在客户端和Job类之间增加一个接口层，对于不同功能有不同接口，比如打印机功能Print接口，然后将Job类切分为继承不同接口的子类，这样有一个Print Job类，等等。。</p><h4 id="D-依赖反转原则（Dependency-Inversion-Principle"><a href="#D-依赖反转原则（Dependency-Inversion-Principle" class="headerlink" title="[D]依赖反转原则（Dependency Inversion Principle)"></a>[D]依赖反转原则（Dependency Inversion Principle)</h4><p>依赖倒置的原则 （Dependency Inversion Priciple DIP)规定：代码应当取决于抽象概念，而不是具体实现。</p><p><strong>高层模块不应该依赖于底层模块，二者都应该依赖于抽象</strong></p><p><strong>抽象不应该依赖于细节，细节应该依赖于抽象（总结解藕)</strong></p><p>类可能依赖于其他类来执行气工作。但是它们不应当依赖于该类特定的具体实现，而应当是它的抽象。这个原则她重要了，社会分工化，标准化都是这个设计原则的体现。显然，这一概念会大大提供系统的灵活性。如果类值关心他们用于支持特定契约而不是特定类型的组件，就可以快速而轻松地修改这些低级服务的功能，同时最大限度地降低对系统其余部分的影响。</p><blockquote><p>依赖反转的原则</p><ol><li>依赖注入</li></ol><p>当某个角色要另一个角色协助时，通常由调用者来创建被调用者的实例。现在创建实例由容器来完成然后注入调用者</p><ol start="2"><li>注入过程</li></ol><p>如果需要调用另一个对象协助时，无须代码中创建被调用者，而是依赖于外部的注入</p><ol start="3"><li>两种方式</li></ol><p>设置注入、构造注入</p></blockquote><h2 id="依赖注入DI-（Dependency-injection）"><a href="#依赖注入DI-（Dependency-injection）" class="headerlink" title="依赖注入DI （Dependency injection）"></a>依赖注入DI （Dependency injection）</h2><p>为一个方法应该遵从“依赖于抽象而不是一个实例”的概念。依赖注入是该原则的一种实现方式。</p><h2 id="控制反转IOC-（Inversion-of-Control"><a href="#控制反转IOC-（Inversion-of-Control" class="headerlink" title="控制反转IOC （Inversion of Control)"></a>控制反转IOC （Inversion of Control)</h2><p>Ioc可以认为是一种全新的设计模式，但是理论和时间成熟相对较晚</p><h3 id="什么是控制反转"><a href="#什么是控制反转" class="headerlink" title="什么是控制反转 ?"></a>什么是控制反转 ?</h3><p>控制反转（inversion of Control，缩写Ioc),是面向对象编程的一种设计原则，可以用来减低计算机代码之间的耦合度。其中最常见的方式叫做依赖注入（Dependency Injection 简称DI），还有一种方式叫（依赖查找）（Dependency Lookup).通过控制反转，对象在被创建的时候，由一个调控系统内所有对象外界实体，将其所依赖的对象的引用传递它，也可以说，依赖被注入到对象中</p><p>依赖查找：容器提供回调接口和上下文条件给组件</p><p>依赖注入：组件不做定位查询，只提供普通的方法让容器去决定依赖关系</p><h2 id="面向切面编程AOP-（aspect-Oriented-Programming"><a href="#面向切面编程AOP-（aspect-Oriented-Programming" class="headerlink" title="面向切面编程AOP （aspect Oriented Programming)"></a>面向切面编程AOP （aspect Oriented Programming)</h2><p>面向切面编程（aop)是对面向对象编程（oop)的补充</p><p>在软件行业中，AOP为aspect Oriented Programming 的缩写，意为：面向切面编程，通过预编译方式和运行动态代理实现程序功能的统一维护的一种技术，AOP是OOP的延续，是软件开发中的一个热点，也是Spiring框架中的一个重要内容，是函数式编程的一种衍生范型。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各个部分之间的耦合度降低，提高程序的可重用性，同时提高开发效率。</p><ol><li>基本概念</li></ol><p>AOP完善spring的依赖注入（DI)面向对象编程将程序分解成各个层次的对象，面向切面编程将程序运行过程分解成各个切面</p><ol start="2"><li>Filter</li></ol><p>Filter(过滤器）也是一种AOPA它利用一种称为“横切”的技术，剖解开封装的对象内部，并将那些影响了多个类的公共行为封装到一重用模块，并将其命名为“Aspect”,即切面。所谓“切面“</p><ol start="3"><li>优点</li></ol><p>AOP的好处就是你只需要干你的正事，其它事情别人帮你干。在你访问数据库之前，自动帮助开启事务，当你访问数据库结束之后，自动帮助你提交/回滚事务！</p><hr><p>领域驱动设计 DDD</p><p>成功的路并不拥堵</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;SOLID设计原则&quot;&gt;&lt;a href=&quot;#SOLID设计原则&quot; class=&quot;headerlink&quot; title=&quot;SOLID设计原则&quot;&gt;&lt;/a&gt;SOLID设计原则&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;编程思想逐层提升 （improve programming</summary>
+      
+    
+    
+    
+    
+    <category term="编程思想" scheme="https://blog.dengyongchao.com/tags/%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Static site generator</title>
+    <link href="https://blog.dengyongchao.com/2020/06/07/Static-site-generator/"/>
+    <id>https://blog.dengyongchao.com/2020/06/07/Static-site-generator/</id>
+    <published>2020-06-07T12:25:09.000Z</published>
+    <updated>2021-12-27T15:26:08.498Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><ul><li><a class="link"   href="https://hexo.io/" >Hexo文档<i class="fas fa-external-link-alt"></i></a></li><li>快速，简单且功能强大的博客框架</li><li>超快速度<ul><li>Node.js 所带来超快生成速度，让几百个页面几秒内瞬间完成渲染</li><li>支持Markdown</li><li>一键部署</li><li>插件和可扩展性<h2 id="VuePress"><a href="#VuePress" class="headerlink" title="VuePress"></a>VuePress</h2></li></ul></li><li><a class="link"   href="https://www.vuepress.cn/theme/blog-theme.html" >VuePress文档<i class="fas fa-external-link-alt"></i></a></li><li>简介至上<ul><li>以Markdown为中心的醒目结构，以最好啊的配置帮助你专注于写作</li></ul></li><li>Vue 驱动<ul><li>享受Vue-webpack开发体验，可以在Markdown中使用Vue组件，又可以来开发自定义主题</li></ul></li><li>高性能<ul><li>VuePress会为每一个页面预渲染生成静态的HTML,同时，每一个页面被加载是侯，将作为SPA运行</li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Hexo&quot;&gt;&lt;a href=&quot;#Hexo&quot; class=&quot;headerlink&quot; title=&quot;Hexo&quot;&gt;&lt;/a&gt;Hexo&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class=&quot;link&quot;   href=&quot;https://hexo.io/&quot; &gt;Hexo文档&lt;i clas</summary>
+      
+    
+    
+    
+    
+    <category term="Doc" scheme="https://blog.dengyongchao.com/tags/Doc/"/>
+    
+  </entry>
+  
+</feed>

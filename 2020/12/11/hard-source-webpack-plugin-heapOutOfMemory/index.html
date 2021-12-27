@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="javascript,css,html,typescript,工程化">
+    <meta name="description" content="个人日常记录。">
+    <meta name="author" content="Dyck Deng">
+    
+    <title>
+        
+            HardSourceWebpackPlugin 内存溢出 |
+        
+        邓永超
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/avatar.jpg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"blog.dengyongchao.com","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.jpg","favicon":"/images/avatar.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Happy coding."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="邓永超" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                邓永超
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://bugchao.com"
+                            >
+                                NAV
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://bugchao.com">NAV</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">HardSourceWebpackPlugin 内存溢出</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Dyck Deng</span>
+                        
+                            <span class="author-label">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2020-12-11 11:08:59</span>
+        <span class="mobile">2020-12-11 11:08</span>
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/nodejs/">nodejs</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>609 字</span>
+        </span>
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="HardSourceWebpackPlugin-内存溢出"><a href="#HardSourceWebpackPlugin-内存溢出" class="headerlink" title="HardSourceWebpackPlugin 内存溢出"></a>HardSourceWebpackPlugin 内存溢出</h1><p>开发模式下经过一天的 dev 最终突然无法访问了， 后一看命令行报如下错误，发现内存溢出了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[hardsource:19a950bb] Using 326 MB of disk space.</span><br><span class="line">94% after seal[hardsource:19a950bb] Could not freeze ./assets/stylesheets/zddi.scss: Cannot <span class="built_in">read</span> property <span class="string">&#x27;hash&#x27;</span> of undefined</span><br><span class="line">[hardsource:19a950bb] Could not freeze ./node_modules/@dengyongchao/modal/modal.scss: Cannot <span class="built_in">read</span> property <span class="string">&#x27;hash&#x27;</span> of undefined</span><br><span class="line">95% emitting HtmlWebpackPlugin</span><br><span class="line">&lt;--- Last few GCs ---&gt;</span><br><span class="line"></span><br><span class="line">[52718:0x10286b000] 13503751 ms: Mark-sweep 1364.3 (1403.4) -&gt; 1364.2 (1403.4) MB, 493.1 / 0.1 ms  (average mu = 0.248, current mu = 0.000) last resort GC <span class="keyword">in</span> old space requested</span><br><span class="line">[52718:0x10286b000] 13504247 ms: Mark-sweep 1364.2 (1403.4) -&gt; 1364.2 (1403.4) MB, 495.7 / 0.1 ms  (average mu = 0.142, current mu = 0.000) last resort GC <span class="keyword">in</span> old space requested</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;--- JS stacktrace ---&gt;</span><br><span class="line"></span><br><span class="line">==== JS stack trace =========================================</span><br><span class="line"></span><br><span class="line">    0: ExitFrame [pc: 0x2d8c53e878a1]</span><br><span class="line">Security context: 0x155e5e79e6c1 &lt;JSObject&gt;</span><br><span class="line">    1: byteLength(aka byteLength) [0x155ebfdfa7b9] [buffer.js:~509] [pc=0x2d8c54ca5567](this=0x155e775026f1 &lt;undefined&gt;,string=0x155e86cb5ee9 &lt;Very long string[10165335]&gt;,encoding=0x155e5e7be9b1 &lt;String[4]: utf8&gt;)</span><br><span class="line">    2: arguments adaptor frame: 3-&gt;2</span><br><span class="line">    3: from [0x155e607a0d59] [buffer.js:~199] [pc=0x2d8c54cf8c6c](this=0x155ebfdd4181 &lt;JSFunction Buffer (sfi...</span><br><span class="line"></span><br><span class="line">FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory</span><br><span class="line"> 1: 0x100d68631 node::Abort() (.cold.1) [/usr/<span class="built_in">local</span>/bin/node]</span><br><span class="line"> 2: 0x10003aeb2 node_module_register [/usr/<span class="built_in">local</span>/bin/node]</span><br><span class="line"> 3: 0x10003b073 node::OnFatalError(char const*, char const*) [/usr/<span class="built_in">local</span>/bin/node]</span><br><span class="line"> 4: 0x1001a9197 v8::Utils::ReportOOMFailure(v8::internal::Isolate*, char const*, bool) [/usr/<span class="built_in">local</span>/bin/node]</span><br><span class="line"> 5: 0x1001a9131 v8::internal::V8::FatalProcessOutOfMemory(v8::internal::Isolate*, char const*, bool) [/usr/<span class="built_in">local</span>/bin/node]</span><br><span class="line"> 6: 0x100593692 v8::internal::Heap::FatalProcessOutOfMemory(char const*) [/usr/<span class="built_in">local</span>/bin/node]</span><br><span class="line"> 7: 0x10059ce55 v8::internal::Heap::AllocateRawWithRetryOrFail(int, v8::internal::AllocationSpace, v8::internal::AllocationAlignment) [/usr/<span class="built_in">local</span>/bin/node]</span><br><span class="line"> 8: 0x10056f6f3 v8::internal::Factory::NewRawTwoByteString(int, v8::internal::PretenureFlag) [/usr/<span class="built_in">local</span>/bin/node]</span><br><span class="line"> 9: 0x1006a8952 v8::internal::String::SlowFlatten(v8::internal::Handle&lt;v8::internal::ConsString&gt;, v8::internal::PretenureFlag) [/usr/<span class="built_in">local</span>/bin/node]</span><br><span class="line">10: 0x1001c97c0 v8::String::Utf8Length() const [/usr/<span class="built_in">local</span>/bin/node]</span><br><span class="line">11: 0x10004c9e0 node::Buffer::(anonymous namespace)::ByteLengthUtf8(v8::FunctionCallbackInfo&lt;v8::Value&gt; const&amp;) [/usr/<span class="built_in">local</span>/bin/node]</span><br><span class="line">12: 0x2d8c53e878a1</span><br><span class="line">13: 0x2d8c54ca5567</span><br><span class="line">14: 0x2d8c53e8a5c3</span><br><span class="line">error Command failed with signal <span class="string">&quot;SIGABRT&quot;</span>.</span><br><span class="line">info Visit https://yarnpkg.com/en/docs/cli/run <span class="keyword">for</span> documentation about this <span class="built_in">command</span>.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Version: webpack 4.44.2</span><br><span class="line">Time: 4624ms</span><br><span class="line">Built at: 2020-12-11 10:44:07 AM</span><br><span class="line">                                    Asset      Size  Chunks                                      Chunk Names</span><br><span class="line">                                   app.js  4.43 MiB     app  [emitted]                    [big]  app</span><br><span class="line">     fc7b2a59864448e6c572.hot-update.json  48 bytes          [emitted] [immutable] [hmr]</span><br><span class="line">master.fc7b2a59864448e6c572.hot-update.js  4.12 KiB  master  [emitted] [immutable] [hmr]         master</span><br><span class="line">                                master.js  9.71 MiB  master  [emitted]                    [big]  master</span><br><span class="line"> + 3 hidden assets</span><br><span class="line">Entrypoint app [big] = app.css app.js</span><br><span class="line">[./assets/javascripts/zddi/am/dhcp_like/views/main.js] 2.67 KiB &#123;master&#125; [built]</span><br><span class="line">    + 3749 hidden modules</span><br><span class="line">ℹ ｢wdm｣: Compiled successfully.</span><br><span class="line">ℹ ｢wdm｣: Compiling...</span><br><span class="line">[hardsource:19a950bb] Using 326 MB of disk space.</span><br><span class="line">94% after seal[hardsource:19a950bb] Could not freeze ./assets/stylesheets/zddi.scss: Cannot <span class="built_in">read</span> property <span class="string">&#x27;hash&#x27;</span> of undefined</span><br><span class="line">[hardsource:19a950bb] Could not freeze ./node_modules/@dengyongchao/modal/modal.scss: Cannot <span class="built_in">read</span> property <span class="string">&#x27;hash&#x27;</span> of undefined</span><br><span class="line">ℹ ｢wdm｣: Hash: d41d03944d509d378704</span><br><span class="line">Version: webpack 4.44.2</span><br><span class="line">Time: 5698ms</span><br></pre></td></tr></table></figure>
+<hr>
+<p>解决方案</p>
+<p>v8 对内存限制约为 1.7 GB</p>
+<p>可以手动设置限制大小， 我采用的方案</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node --max-old-space-size=4096 a.js</span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：HardSourceWebpackPlugin 内存溢出</li>
+        <li>本文作者：Dyck Deng</li>
+        <li>创建时间：2020-12-11 11:08:59</li>
+        <li>
+            本文链接：https://blog.dengyongchao.com/2020/12/11/hard-source-webpack-plugin-heapOutOfMemory/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/nodejs/">#nodejs</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/11/30/vscode%E6%8F%92%E4%BB%B6/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">vscode 插件</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2020/11/10/ruby-thin-server-max-request-limit/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">ruby thin 服务器最大请求 URL 限制</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script >
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'pYvekGg278Wy08A1W9DM3lQm-gzGzoHsz',
+                    appKey: '15EfD9hIM79chn4Cs4HjB6La',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '欢迎评论～～～～～',
+                    lang: 'zh-CN'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'Dyck Deng';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('false') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Dyck Deng</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>
