@@ -733,10 +733,10 @@ hexo-server@^2.0.0:
     open "^7.0.0"
     serve-static "^1.14.1"
 
-hexo-theme-keep@^3.4.5:
-  version "3.4.5"
-  resolved "https://registry.npmmirror.com/hexo-theme-keep/download/hexo-theme-keep-3.4.5.tgz#01637e4cb1a2180ff4f081416c3c3a594e02079d"
-  integrity sha512-oJ3PUV7dvkIKaCIrxGmDbnesm+sMR0y9F2pwS6Tcen5gz8pJNEhtYHEZEPovw8ct7RAxE+pgYaFfXZGI2bnFbQ==
+hexo-theme-keep@^3.4.8:
+  version "3.4.8"
+  resolved "https://registry.yarnpkg.com/hexo-theme-keep/-/hexo-theme-keep-3.4.8.tgz#d9102aa743d80c6b8765eea7f0370301a2856378"
+  integrity sha512-vnZtUHSe8FmGRr5/z44DOyeIvK4OyZm6P3qMR/XoBYATjejUryE5OdLYpfEIK1WLUhJ72Ng5Jnhwx/Zqa3So4A==
 
 hexo-util@1.0.0:
   version "1.0.0"
